@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\ContextClasses\" />
+    <Folder Include="Models\Admins\" />
   </ItemGroup>
 
 </Project>
