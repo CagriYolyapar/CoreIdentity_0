@@ -71,6 +71,8 @@ namespace CoreIdentity_0.Controllers
                //Todo: İşlemler burada kaldı. IdentityResult üzerinden devam edilecek
                //Serra : Buradan sonra Admin işlemleri de yapılacak unutma
             }
+
+            return View();
         }
     }
 }
