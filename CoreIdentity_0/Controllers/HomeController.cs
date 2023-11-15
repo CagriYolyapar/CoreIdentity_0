@@ -93,6 +93,9 @@ namespace CoreIdentity_0.Controllers
         }
 
 
+        //Unutmayın ki Identity User nesnesine ulasabilmek icin Authorize attribute'unuzun olması gereklidir
+
+
         [Authorize(Roles = "Admin")]
         public IActionResult AdminPanel()
         {
@@ -102,6 +105,7 @@ namespace CoreIdentity_0.Controllers
         [Authorize(Roles = "Member")]
         public IActionResult MemberPanel()
         {
+           
             return View();
         }
 
@@ -125,6 +129,7 @@ namespace CoreIdentity_0.Controllers
         {
             if (ModelState.IsValid)
             {
+               
                 AppUser appUser = await _userManager.FindByNameAsync(model.UserName); //await ile bir Task'in direkt sonucunu beklediginiz icin onu elde edersiniz...
 
                 SignInResult result = await _signInManager.PasswordSignInAsync(appUser, model.Password, model.RememberMe, true);

@@ -1,0 +1,22 @@
+﻿@model CreateRoleRequestModel
+
+
+<form asp-action="Create" asp-controller="Role" method="post" class="p-3 w-75 m-auto">
+
+
+
+    <div class="mb-3">
+        <label>Rol ismi giriniz</label>
+        <span class="text-danger" asp-validation-for="RoleName"></span>
+        <input asp-for="RoleName" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <button class="btn btn-primary"> Rol Ekle</button>
+    </div>
+
+
+    <div class="text-danger" asp-validation-summary="ModelOnly">
+    </div>
+
+</form>

@@ -1,0 +1,24 @@
+﻿@model List<AppRole>
+
+@*Eger siz bir linke sadece ACtion yazıyor ve controller icin bir attribute tanımlamıyorsanız linkinizin otomatik olarak icinde bulundugu Controller'i algılayacak ve oradaki sizin belirttiginiz Action'a gidecektir*@
+
+
+<a asp-action="Create" asp-controller="Role">Yeni Rol Ekle </a>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Rol ismi</th>
+            <th>Yaratılma Tarihi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (AppRole item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.CreatedDate</td>
+            </tr>
+        }
+    </tbody>
+</table>
