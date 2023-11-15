@@ -1,0 +1,43 @@
+﻿@model AssignRolePageVM
+
+
+<form asp-action="AssignRole" asp-controller="User" method="post" class="p-3 w-75 m-auto">
+
+    <input type="hidden" asp-for="UserID" />
+
+
+    <div class="list-group">
+
+
+
+     @*    @foreach (AppRoleResponseModel item in Model.Roles)
+        {
+            <input type="hidden" asp-for="@item.RoleName" />
+            <input type="hidden" asp-for="@item.RoleID" />
+            <input type="form-check-input" asp-for="@item.Checked"/>
+        } *@
+
+        @for(int i = 0; i < Model.Roles.Count; i++)
+        {
+            <input type="hidden" asp-for="@Model.Roles[i].RoleName" />
+            <input type="hidden" asp-for="@Model.Roles[i].RoleID" />
+            <label class="list-group-item">
+                <input class="form-check-input me-1" asp-for="Roles[i].Checked">
+                @Model.Roles[i].RoleName
+            </label>
+        }
+
+
+
+    </div>
+
+    <br /><br />
+
+    <div class="mb-3">
+
+        <button class="btn btn-primary">Kaydet</button>
+
+    </div>
+
+
+</form>
