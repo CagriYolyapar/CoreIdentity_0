@@ -20,6 +20,20 @@ builder.Services.AddIdentity<AppUser, AppRole>(x =>
 }).AddEntityFrameworkStores<MyContext>();
 
 
+//builder.Services.AddIdentityCore<AppUser>(
+//    x =>
+//    {
+//        x.Password.RequiredLength = 3;
+//        x.Password.RequireDigit = false;
+//        x.Password.RequireLowercase = false;
+//        x.Password.RequireUppercase = false;
+//        x.Password.RequireNonAlphanumeric = false;
+//        x.Lockout.MaxFailedAccessAttempts = 5;
+//    }
+
+//    ).AddRoleManager<AppRole>().AddRoles<AppRole>().AddEntityFrameworkStores<MyContext>();
+
+
 builder.Services.ConfigureApplicationCookie(x =>
 {
     x.Cookie.HttpOnly = true;

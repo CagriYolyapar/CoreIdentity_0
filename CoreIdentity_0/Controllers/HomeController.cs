@@ -22,7 +22,7 @@ namespace CoreIdentity_0.Controllers
         readonly RoleManager<AppRole> _roleManager;
         readonly SignInManager<AppUser> _signInManager;
 
-
+        
 
         public HomeController(ILogger<HomeController> logger, UserManager<AppUser> userManager, RoleManager<AppRole> roleManager, SignInManager<AppUser> signInManager)
         {
