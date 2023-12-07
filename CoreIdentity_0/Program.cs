@@ -7,31 +7,32 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddIdentity<AppUser, AppRole>(x =>
-{
-    x.Password.RequiredLength = 3;
-    x.Password.RequireDigit = false;
-    x.Password.RequireLowercase = false;
-    x.Password.RequireUppercase = false;
-    x.Password.RequireNonAlphanumeric = false;
-    x.Lockout.MaxFailedAccessAttempts = 5;
-    //x.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
+//builder.Services.AddIdentity<AppUser, AppRole>(x =>
+//{
+//    x.Password.RequiredLength = 3;
+//    x.Password.RequireDigit = false;
+//    x.Password.RequireLowercase = false;
+//    x.Password.RequireUppercase = false;
+//    x.Password.RequireNonAlphanumeric = false;
+//    x.Lockout.MaxFailedAccessAttempts = 5;
+//    //x.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
 
-}).AddEntityFrameworkStores<MyContext>();
+//}).AddEntityFrameworkStores<MyContext>();
 
 
-//builder.Services.AddIdentityCore<AppUser>(
-//    x =>
-//    {
-//        x.Password.RequiredLength = 3;
-//        x.Password.RequireDigit = false;
-//        x.Password.RequireLowercase = false;
-//        x.Password.RequireUppercase = false;
-//        x.Password.RequireNonAlphanumeric = false;
-//        x.Lockout.MaxFailedAccessAttempts = 5;
-//    }
+builder.Services.AddIdentityCore<AppUser>(
+    x =>
+    {
+        x.Password.RequiredLength = 3;
+        x.Password.RequireDigit = false;
+        x.Password.RequireLowercase = false;
+        x.Password.RequireUppercase = false;
+        x.Password.RequireNonAlphanumeric = false;
+        x.Lockout.MaxFailedAccessAttempts = 5;
+    }
 
-//    ).AddRoleManager<AppRole>().AddRoles<AppRole>().AddEntityFrameworkStores<MyContext>();
+    ).AddRoles<AppRole>().AddEntityFrameworkStores<MyContext>();
+//TODO:Identity yapisini middleware'e ekledigimiz yukaridaki kod ifadesinde Kullanici olusturma ,Rol ekleme ,kullaniciya rol atama gibi islemler devam edicektir
 
 
 builder.Services.ConfigureApplicationCookie(x =>
